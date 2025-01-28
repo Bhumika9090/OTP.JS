@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    #div{
+       border:2px solid black ;
+       height: 300px;
+       width: 300px;
+       text-align: center;
+       background-color: bisque;
+      margin-left: 800px;
+       
+    }
+    #p{
+        font-size: 25px;
+    }
+    #input{
+        font-size: 20px;
+    }
+    #submit{
+        font-size: 20px;
+    }
+    #clickme{
+        font-size: 30px;
+    }
+</style>
+<body>
+    <div id="div">
+        <h1>even or odd</h1>
+       <form id="form">
+        <input type="number"id="input" placeholder="enter a number"><br><br>
+        <button id="submit">submit</button>
+      <p id="p"></p>
+
+       </form>
+    </div><br><br>
+    <button onclick="demo()" id="clickme">clickme</button>
+  <h1 id="otp"></h1>
+    <script>
+        // let num=document.getElementById("input")
+let form=document.getElementById("form")
+let p=document.getElementById("p")
+form.addEventListener("submit",function(e){
+    e.preventDefault()
+    let num=document.getElementById("input").value 
+    if(!isNaN(num))
+       if(num%2==0)
+          p.innerHTML="even";
+        else{
+           p.innerHTML="odd" 
+        }
+        
+       else
+           p.innerHTML="plz enter a valid number"
+})
+
+
+
+
+
+
+function demo(){  
+        let x = Math.random() * 1000000;
+        let otp = Math.floor(x)
+        let clr;
+        if(otp < 100000){
+            clr=otp + 100000
+        }
+        else clr = otp
+        
+         document.body.style.backgroundColor =`#${clr}`;
+         let gen_otp=document.getElementById("otp");
+         gen_otp.innerHTML=clr
+        
+        }
+</script>
+</body>
+</html>
